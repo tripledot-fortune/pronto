@@ -61,6 +61,26 @@ module Pronto
                            description: status.description)
     end
 
+    def add_comment(body, options = {})
+      client.add_comment(slug, pull_id, body, options)
+    end
+
+    def update_comment(comment_number, body, options = {})
+      client.update_comment(slug, comment_number, body, options)
+    end
+
+    def issue_comments
+      client.issue_comments(slug, pull_id)
+    end
+
+    def delete_issue_comment(comment_number)
+      client.delete_comment(slug, comment_number)
+    end
+
+    def pull_owner
+      pull[:user]
+    end
+
     private
 
     def create_pull_request_review(comments)

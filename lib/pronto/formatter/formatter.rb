@@ -16,6 +16,7 @@ module Pronto
       'github_combined_status' => GithubCombinedStatusFormatter,
       'github_pr' => GithubPullRequestFormatter,
       'github_pr_review' => GithubPullRequestReviewFormatter,
+      'github_pr_reply' => GithubPullRequestReplyFormatter,
       'gitlab' => GitlabFormatter,
       'gitlab_mr' => GitlabMergeRequestReviewFormatter,
       'bitbucket' => BitbucketFormatter,
