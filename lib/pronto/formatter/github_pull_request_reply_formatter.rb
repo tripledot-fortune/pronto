@@ -22,11 +22,8 @@ module Pronto
       end
 
       def submit_comments(client, comments, existed_comment = nil, username)
-        if comments.count.zero?
-          congratulation_template = 'Congratulation!!🎉🎉🎉 🕵 Test coverage is OK and your code looks good 🤘!'
-
+        if comments.count.zero? || comments.all?(&:blank?)
           client.delete_issue_comment(existed_comment[:id]) if existed_comment
-          client.add_comment(congratulation_template)
         else
           body = "🚨🚨🚨🚨🚓 Hey @#{username}🕵 This is the 🔫👮👮🚔👮\n```" << prepare_comments(comments).join("\n")
 
